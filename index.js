@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const { default: Choices } = require("inquirer/lib/objects/choices");
 const { type } = require("os");
 const path = require("path");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -75,7 +76,12 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((responses) => {
+    console.log("creating professional README.md File...");
+    writeToFile("./dist/README.md", generateMarkdown({ ...responses }));
+  });
+}
 
 // Function call to initialize app
 init();
