@@ -1,12 +1,11 @@
 // TODO: Include packages needed for this application
-const { fstat } = require("fs");
+const fs = require("fs");
 const inquirer = require("inquirer");
 const { default: Choices } = require("inquirer/lib/objects/choices");
 const { type } = require("os");
 const path = require("path");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
 const questions = [
   {
     type: "input",
@@ -24,7 +23,7 @@ const questions = [
     type: "checkbox",
     name: "license",
     message: "please select a license for this project",
-    Choices: ["boost1.0", "MIT", "MPL2.0", "APATCHE2.0", "none"],
+    choices: ["boost1.0", "MIT", "MPL2.0", "APATCHE2.0", "none"],
   },
 
   {
