@@ -1,4 +1,3 @@
-// TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
 const { default: Choices } = require("inquirer/lib/objects/choices");
@@ -69,12 +68,12 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+// Function to write a README file
 function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
-// TODO: Create a function to initialize app
+// Function to initialize an app
 function init() {
   inquirer.prompt(questions).then((responses) => {
     console.log("creating professional README.md File...");
